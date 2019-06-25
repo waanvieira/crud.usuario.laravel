@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<title class="title-pg">{{'Teste Laravel'}}</title>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- FontWesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="{{url('assets/painel/css/style.css')}}">
+	<!-- Inclusão do jQuery-->
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<!-- Inclusão do Plugin jQuery Validation-->
+	<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+</head>
+<header>
+	<nav class="navbar navbar-dark bg-dark">
+  		<a class="navbar-brand" href="{{route('usuarios.index')}}">
+    		<img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    	Home
+  		</a>
+</nav>
+</header>
+<body>
+	<div class="container">
+		@yield('content')
+	</div>
+	
+</body>
+
+</html>
