@@ -1,0 +1,40 @@
+@extends('usuarios.template')
+@section('content')
+<h1>{{$title}}</h1>
+<a href="{{route('usuarios.create')}}" class="btn btn-primary">Cadastrar Produto</a>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Data de nascimento</th>
+				<th>Funções</th>
+			</tr>
+			<tbody>
+				@foreach($usuarios as $usuario)
+				<tr>
+					<td>{{$usuario->id}}</td>
+					<td>{{$usuario->nome}}</td>
+					<td>{{$usuario->email}}</td>
+					<td>{{$usuario->ddtnascimento}}</td>
+					<td><span>
+						<a href="{{route('usuarios.edit', $usuario->id)}}">
+							<span class="fas fa-user-edit"></span>
+						</a>
+						
+						<form method="POST" action="{{route('usuarios.destroy', $usuario->id)}}" onsubmit="return confirm('Deseja excluir este registro?');">
+						   	@csrf
+				            <input type="hidden" name="_method" value="delete" >
+				            <button class="btn btn-danger btn-sm">
+				            	<span class="fas fa-user-times"></span>
+				            </button>
+			        	</form>
+						</span>
+					</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</thead>
+	</table>
+@endsection
